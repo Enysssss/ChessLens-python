@@ -423,7 +423,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Tabs ─────────────────────────────────────────────────────────────────────────
-tab1, tab2 = st.tabs(["⚡  Analyse IA", "♟  Ouvrir sur Lichess"])
+tab1, tab2 = st.tabs(["Analyse IA", "♟  Ouvrir sur Lichess"])
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Analyse IA
@@ -441,7 +441,7 @@ with tab1:
             )
         with col2:
             games_count = st.selectbox("Parties analysées", options=[5, 10, 20], index=1)
-        submitted = st.form_submit_button("⚡  Lancer l'analyse")
+        submitted = st.form_submit_button("Lancer l'analyse")
 
     if submitted:
         username = username.strip()
