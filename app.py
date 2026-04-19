@@ -440,7 +440,7 @@ with tab1:
                 format_func=lambda x: "Lichess" if x == "lichess" else "Chess.com",
             )
         with col2:
-            games_count = st.radio("Parties analysées", options=[5, 10, 20], index=1, horizontal=True)
+            games_count = st.selectbox("Parties analysées", options=[5, 10, 20], index=1)
         submitted = st.form_submit_button("⚡  Lancer l'analyse")
 
     if submitted:
@@ -531,7 +531,7 @@ with tab2:
 
     with st.form("browser_form"):
         cc_username = st.text_input("Pseudo Chess.com", max_chars=30, placeholder="ex: hikaru")
-        cc_count = st.radio("Nombre de parties", options=[5, 10, 20], index=1, horizontal=True)
+        cc_count = st.selectbox("Nombre de parties", options=[5, 10, 20], index=1)
         load_btn = st.form_submit_button("♟  Charger les parties")
 
     if load_btn:
