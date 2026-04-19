@@ -440,7 +440,7 @@ with tab1:
                 format_func=lambda x: "Lichess" if x == "lichess" else "Chess.com",
             )
         with col2:
-            games_count = st.select_slider("Parties analysées", options=[5, 10, 20], value=10)
+            games_count = st.radio("Parties analysées", options=[5, 10, 20], index=1, horizontal=True)
         submitted = st.form_submit_button("⚡  Lancer l'analyse")
 
     if submitted:
@@ -531,7 +531,7 @@ with tab2:
 
     with st.form("browser_form"):
         cc_username = st.text_input("Pseudo Chess.com", max_chars=30, placeholder="ex: hikaru")
-        cc_count = st.select_slider("Nombre de parties", options=[5, 10, 20], value=10)
+        cc_count = st.radio("Nombre de parties", options=[5, 10, 20], index=1, horizontal=True)
         load_btn = st.form_submit_button("♟  Charger les parties")
 
     if load_btn:
@@ -576,30 +576,33 @@ with tab2:
 
         for i, g in enumerate(games_list):
             outcome   = g["outcome"]
-            acc_html  = f'<span class="ob-acc">{g["accuracy"]}% précision</span>' if g["accuracy"] else ""
-            opp_color = g.get("my_color", "white")
-            icon      = color_icons.get(opp_color, "♟")
+            icon      = color_icons.get(g.get("my_color", "white"), "♟")
+            acc_part  = f' · <span class="ob-acc">{g["accuracy"]}%</span>' if g["accuracy"] else ""
+
+            meta = (
+                f'⏱ {g["time_control"]} &nbsp;·&nbsp; '
+                f'📅 {g["date"]} &nbsp;·&nbsp; '
+                f'🎯 {g["opening"]}'
+                f'{acc_part}'
+            )
+
+            card_html = (
+                f'<div class="ob-game">'
+                f'<div class="ob-game-stripe {outcome}"></div>'
+                f'<div class="ob-game-body">'
+                f'<div class="ob-game-top">'
+                f'<span class="ob-badge {outcome}">{outcome_labels[outcome]}</span>'
+                f'<span class="ob-game-opp"><span>vs</span>{g["opponent"]}</span>'
+                f'<span class="ob-game-rating">{icon} {g["my_rating"]} · {g["opponent_rating"]}</span>'
+                f'</div>'
+                f'<div class="ob-game-meta">{meta}</div>'
+                f'</div>'
+                f'</div>'
+            )
 
             col_card, col_btn = st.columns([3, 1])
             with col_card:
-                st.markdown(f"""
-<div class="ob-game">
-    <div class="ob-game-stripe {outcome}"></div>
-    <div class="ob-game-body">
-        <div class="ob-game-top">
-            <span class="ob-badge {outcome}">{outcome_labels[outcome]}</span>
-            <span class="ob-game-opp"><span>vs</span>{g["opponent"]}</span>
-            <span class="ob-game-rating">{icon} {g["my_rating"]} · {g["opponent_rating"]}</span>
-        </div>
-        <div class="ob-game-meta">
-            <span>⏱ {g["time_control"]}</span>
-            <span>📅 {g["date"]}</span>
-            <span>🎯 {g["opening"]}</span>
-            {("<span>" + acc_html + "</span>") if acc_html else ""}
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+                st.markdown(card_html, unsafe_allow_html=True)
 
             with col_btn:
                 lichess_url = st.session_state["lichess_urls"].get(i)
