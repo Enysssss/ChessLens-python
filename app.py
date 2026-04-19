@@ -423,7 +423,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Tabs ─────────────────────────────────────────────────────────────────────────
-tab1, tab2 = st.tabs(["Analyse IA", "♟  Ouvrir sur Lichess"])
+tab1, tab2 = st.tabs(["Analyse IA", "Ouvrir sur Lichess"])
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Analyse IA
