@@ -18,14 +18,14 @@ st.set_page_config(
 # ── DESIGN OBSIDIAN ────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, .stApp {
     background: #0C0C0C !important;
     color: #EDECEA;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -72,19 +72,21 @@ html { font-size: 17px; }
 /* ── Inputs ── */
 .stTextInput label, .stSelectbox label, .stSlider label,
 div[data-testid="stWidgetLabel"] > label {
-    font-family: 'DM Mono', monospace !important;
-    font-size: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.14em !important;
-    color: rgba(255,255,255,0.35) !important;
+    letter-spacing: 0.1em !important;
+    color: rgba(255,255,255,0.55) !important;
 }
 .stTextInput input {
     background: #141414 !important;
     border: 1px solid rgba(255,255,255,0.09) !important;
     border-radius: 6px !important;
     color: #EDECEA !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 15px !important;
+    font-weight: 400 !important;
     padding: 11px 14px !important;
     transition: border-color 0.2s, box-shadow 0.2s !important;
 }
@@ -100,12 +102,12 @@ div[data-testid="stWidgetLabel"] > label {
     border: 1px solid rgba(255,255,255,0.09) !important;
     border-radius: 6px !important;
     color: #EDECEA !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 15px !important;
 }
 [data-baseweb="popover"] { background: #1A1A1A !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 8px !important; }
 [data-baseweb="menu"] { background: #1A1A1A !important; }
-[data-baseweb="menu-item"] { color: #EDECEA !important; font-family: 'DM Sans', sans-serif !important; }
+[data-baseweb="menu-item"] { color: #EDECEA !important; font-family: 'Inter', sans-serif !important; }
 [data-baseweb="menu-item"]:hover { background: rgba(255,255,255,0.06) !important; }
 
 /* Slider */
@@ -159,7 +161,7 @@ div[data-testid="stNotification"], .stAlert {
     background: #141414 !important;
     border-radius: 6px !important;
     border-color: rgba(255,255,255,0.1) !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 14px !important;
 }
 
@@ -222,39 +224,39 @@ div[data-testid="stNotification"], .stAlert {
 
 .ob-quote {
     margin: 2rem 0;
-    padding: 2.8rem 2.5rem;
+    padding: 2.4rem 2.5rem;
     background: #111111;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.06);
     text-align: center;
 }
 .ob-quote-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.65rem;
-    font-style: italic;
-    font-weight: 300;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
     color: #EDECEA;
-    line-height: 1.7;
+    line-height: 1.75;
     max-width: 640px;
     margin: 0 auto;
 }
 .ob-quote-text::before {
     content: '\201C';
     color: #C9913A;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     line-height: 0;
-    vertical-align: -0.55rem;
+    vertical-align: -0.35rem;
     margin-right: 4px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .ob-quote-text::after {
     content: '\201D';
     color: #C9913A;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     line-height: 0;
-    vertical-align: -0.55rem;
+    vertical-align: -0.35rem;
     margin-left: 4px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .ob-grid {
@@ -274,18 +276,18 @@ div[data-testid="stNotification"], .stAlert {
 .ob-card:hover { border-color: rgba(201,145,58,0.25); }
 .ob-card-label {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.25em;
+    font-size: 10px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.45);
     margin-bottom: 0.65rem;
 }
 .ob-card-body {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-    font-weight: 300;
-    color: #EDECEA;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
     line-height: 1.7;
 }
 
@@ -299,20 +301,20 @@ div[data-testid="stNotification"], .stAlert {
 }
 .ob-advice-label {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.3em;
+    font-size: 10px;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #C9913A;
     margin-bottom: 0.75rem;
-    opacity: 0.8;
+    opacity: 1;
 }
 .ob-advice-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
     color: #EDECEA;
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 .ob-sep {
@@ -378,19 +380,20 @@ div[data-testid="stNotification"], .stAlert {
 .ob-game-opp span { color: rgba(255,255,255,0.3); font-weight: 300; margin-right: 4px; font-size: 13px; }
 .ob-game-rating {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: rgba(255,255,255,0.25);
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
     margin-left: auto;
 }
 .ob-game-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: rgba(255,255,255,0.22);
-    letter-spacing: 0.04em;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 .ob-acc { color: #C9913A !important; }
 
@@ -672,22 +675,23 @@ with tab3:
 
     for num, title, body in steps:
         st.markdown(
-            f'<div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">'
-            f'<div style="min-width:32px;height:32px;border-radius:50%;background:#C9913A;'
+            f'<div style="display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.5rem;">'
+            f'<div style="min-width:36px;height:36px;border-radius:50%;background:#C9913A;'
             f'display:flex;align-items:center;justify-content:center;'
-            f'font-size:13px;font-weight:700;color:#0a0a0a;flex-shrink:0;">{num}</div>'
-            f'<div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:4px;">{title}</div>'
-            f'<div style="color:rgba(255,255,255,0.55);font-size:12px;line-height:1.65;">{body}</div></div>'
-            f'</div>',
+            f'font-family:Inter,sans-serif;font-size:15px;font-weight:700;color:#0a0a0a;flex-shrink:0;">{num}</div>'
+            f'<div style="padding-top:4px;">'
+            f'<div style="font-family:Inter,sans-serif;color:#fff;font-size:16px;font-weight:600;margin-bottom:6px;">{title}</div>'
+            f'<div style="font-family:Inter,sans-serif;color:rgba(255,255,255,0.7);font-size:14px;font-weight:400;line-height:1.75;">{body}</div>'
+            f'</div></div>',
             unsafe_allow_html=True,
         )
 
     st.markdown("""
-<div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1.25rem 1.5rem;margin-top:0.5rem;">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.08em;line-height:2.2;">
+<div style="background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.5rem 1.75rem;margin-top:0.5rem;">
+    <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,0.45);line-height:2.2;">
         ♟ &nbsp;Aucune inscription requise &nbsp;·&nbsp; Vos données ne sont pas stockées<br>
-        ♟ &nbsp;Fonctionne avec <b style="color:#C9913A;">Chess.com</b> et <b style="color:#C9913A;">Lichess</b><br>
-        ♟ &nbsp;Analyse IA propulsée par <b style="color:#C9913A;">Claude · Anthropic</b>
+        ♟ &nbsp;Fonctionne avec <b style="color:#C9913A;font-weight:600;">Chess.com</b> et <b style="color:#C9913A;font-weight:600;">Lichess</b><br>
+        ♟ &nbsp;Analyse IA propulsée par <b style="color:#C9913A;font-weight:600;">Claude · Anthropic</b>
     </div>
 </div>
 """, unsafe_allow_html=True)
