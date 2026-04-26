@@ -636,67 +636,58 @@ with tab2:
 # TAB 3 — Comment ça marche
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab3:
+    st.markdown('<div class="ob-label">C\'est quoi ChessLens ?</div>', unsafe_allow_html=True)
+    st.markdown(
+        "ChessLens est un outil gratuit qui analyse vos parties d'échecs avec l'intelligence artificielle "
+        "et vous permet de les rejouer coup par coup avec un moteur d'analyse de niveau grandmaster — "
+        "sans abonnement payant."
+    )
+
+    st.markdown("")
+    st.markdown('<div class="ob-label">Comment ça marche — en 3 étapes</div>', unsafe_allow_html=True)
+    st.markdown("")
+
+    steps = [
+        (
+            "1",
+            "Vous entrez votre pseudo",
+            "Chess.com et Lichess sont deux plateformes en ligne où des millions de personnes jouent aux échecs. "
+            "Il suffit d'entrer votre nom d'utilisateur — ChessLens récupère automatiquement vos dernières parties.",
+        ),
+        (
+            "2",
+            "L'IA analyse votre jeu",
+            "Claude (une IA d'Anthropic, similaire à ChatGPT) lit vos parties et identifie votre style, "
+            "vos forces, vos erreurs récurrentes, et vous donne un conseil concret pour progresser.",
+        ),
+        (
+            "3",
+            "Vous rejouez chaque partie avec un moteur d'analyse",
+            "Stockfish est le programme d'échecs le plus fort du monde. Il montre, coup par coup, "
+            "les erreurs commises et les meilleurs coups possibles. "
+            "Sur Lichess cette analyse est **100 % gratuite** — Chess.com la réserve à ses abonnés payants. "
+            "ChessLens fait le pont entre les deux.",
+        ),
+    ]
+
+    for num, title, body in steps:
+        st.markdown(
+            f'<div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">'
+            f'<div style="min-width:32px;height:32px;border-radius:50%;background:#C9913A;'
+            f'display:flex;align-items:center;justify-content:center;'
+            f'font-size:13px;font-weight:700;color:#0a0a0a;flex-shrink:0;">{num}</div>'
+            f'<div><div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:4px;">{title}</div>'
+            f'<div style="color:rgba(255,255,255,0.55);font-size:12px;line-height:1.65;">{body}</div></div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
     st.markdown("""
-<div style="max-width:640px;margin:0 auto;padding:1.5rem 0;">
-
-    <div style="margin-bottom:2rem;">
-        <div class="ob-label">C'est quoi ChessLens ?</div>
-        <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.75;margin-top:0.5rem;">
-            ChessLens est un outil gratuit qui analyse vos parties d'échecs avec l'intelligence artificielle
-            et vous permet de les rejouer coup par coup avec un moteur d'analyse de niveau grandmaster —
-            sans abonnement payant.
-        </p>
+<div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1.25rem 1.5rem;margin-top:0.5rem;">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.08em;line-height:2.2;">
+        ♟ &nbsp;Aucune inscription requise &nbsp;·&nbsp; Vos données ne sont pas stockées<br>
+        ♟ &nbsp;Fonctionne avec <b style="color:#C9913A;">Chess.com</b> et <b style="color:#C9913A;">Lichess</b><br>
+        ♟ &nbsp;Analyse IA propulsée par <b style="color:#C9913A;">Claude · Anthropic</b>
     </div>
-
-    <div style="margin-bottom:2rem;">
-        <div class="ob-label">Comment ça marche — en 3 étapes</div>
-        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:0.75rem;">
-
-            <div style="display:flex;gap:1rem;align-items:flex-start;">
-                <div style="min-width:32px;height:32px;border-radius:50%;background:#C9913A;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:#0a0a0a;">1</div>
-                <div>
-                    <div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:2px;">Vous entrez votre pseudo</div>
-                    <div style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;">
-                        Chess.com et Lichess sont deux plateformes en ligne où des millions de personnes jouent aux échecs.
-                        Il suffit d'entrer votre nom d'utilisateur — ChessLens récupère automatiquement vos dernières parties.
-                    </div>
-                </div>
-            </div>
-
-            <div style="display:flex;gap:1rem;align-items:flex-start;">
-                <div style="min-width:32px;height:32px;border-radius:50%;background:#C9913A;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:#0a0a0a;">2</div>
-                <div>
-                    <div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:2px;">L'IA analyse votre jeu</div>
-                    <div style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;">
-                        Claude (une IA d'Anthropic, comme ChatGPT mais différent) lit vos parties et identifie votre style,
-                        vos forces, vos erreurs récurrentes, et vous donne un conseil concret pour progresser.
-                    </div>
-                </div>
-            </div>
-
-            <div style="display:flex;gap:1rem;align-items:flex-start;">
-                <div style="min-width:32px;height:32px;border-radius:50%;background:#C9913A;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:#0a0a0a;">3</div>
-                <div>
-                    <div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:2px;">Vous rejouez chaque partie avec un moteur d'analyse</div>
-                    <div style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6;">
-                        Stockfish est le programme d'échecs le plus fort du monde. Il montre, coup par coup,
-                        les erreurs commises et les meilleurs coups possibles.
-                        Sur Lichess cette analyse est <b style="color:#C9913A;">100 % gratuite</b> — Chess.com la réserve à ses abonnés payants.
-                        ChessLens fait le pont entre les deux.
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div style="background:#111;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:1.25rem 1.5rem;">
-        <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:0.1em;line-height:2;">
-            ♟ &nbsp;Aucune inscription requise &nbsp;·&nbsp; Vos données ne sont pas stockées<br>
-            ♟ &nbsp;Fonctionne avec <b style="color:#C9913A;">Chess.com</b> et <b style="color:#C9913A;">Lichess</b><br>
-            ♟ &nbsp;Analyse IA propulsée par <b style="color:#C9913A;">Claude · Anthropic</b>
-        </div>
-    </div>
-
 </div>
 """, unsafe_allow_html=True)
